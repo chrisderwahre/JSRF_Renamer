@@ -7,10 +7,6 @@ namespace JSRF_Character_Renamer
 {
     public partial class Main : Form
     {
-        public Main()
-        {
-            InitializeComponent();
-        }
 
         bool xbeLoaded = false;
         string currentXbe = "";
@@ -21,16 +17,25 @@ namespace JSRF_Character_Renamer
             return int.Parse(hexValue, System.Globalization.NumberStyles.HexNumber);
         }
 
-        private void exit_Click(object sender, EventArgs e)
+        void loadXbe(string file)
         {
-            this.Close();
+            closeItem.Enabled = true;
+            xbeLoaded = true;
+            currentXbe = file;
+            this.Text = "JSRF Renamer - " + Path.GetFileName(file);
         }
 
-        private void openxbeToolStripMenuItem_Click(object sender, EventArgs e)
+        void closeXbe()
         {
             closeItem.Enabled = false;
             xbeLoaded = false;
+            currentXbe = "";
             this.Text = "JSRF Renamer";
+        }
+
+        private void openXbe_Click(object sender, EventArgs e)
+        {
+            closeXbe();
 
             OpenFileDialog ogFileOFD = new OpenFileDialog();
             ogFileOFD.Filter = "JSRF xbe|*.xbe";
@@ -52,27 +57,14 @@ namespace JSRF_Character_Renamer
 
                     Renamer.addSections(file, newFile);
 
-                    closeItem.Enabled = true;
-                    xbeLoaded = true;
-                    currentXbe = newFile;
-                    this.Text = "JSRF Renamer - " + Path.GetFileName(newFile);
+                    loadXbe(newFile);
                     MessageBox.Show("The xbe wasn't modded, it has been modded to the new location.", "JSRF Renamer");
                 }
                 else
                 {
-                    closeItem.Enabled = true;
-                    xbeLoaded = true;
-                    currentXbe = file;
-                    this.Text = "JSRF Renamer - " + Path.GetFileName(file);
+                    loadXbe(file);
                 }
             }
-        }
-
-        private void closeXbe_Click(object sender, EventArgs e)
-        {
-            this.Text = "JSRF Renamer";
-            closeItem.Enabled = false;
-            xbeLoaded = false;
         }
 
         private void renameButton_Click(object sender, EventArgs e)
@@ -217,10 +209,16 @@ namespace JSRF_Character_Renamer
 
         private void characterList_SelectedIndexChanged(object sender, EventArgs e) { newName.Text = "";  }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) { MessageBox.Show("JSRF Renamer\n\nCreated by ChrisDerWahre\nSection code by Fusecavator\n\nLicensed under MIT license.", "JSRF Renamer"); }
+        private void about_Click(object sender, EventArgs e) { MessageBox.Show("JSRF Renamer\n\nCreated by ChrisDerWahre\nSection code by Fusecavator\n\nLicensed under MIT license.", "JSRF Renamer"); }
 
-        private void contactMeToolStripMenuItem_Click(object sender, EventArgs e) { MessageBox.Show("Contact me:\n\nDiscord: ChrisDerWahre#9694\nTwitter: ChrisDerWahre", "JSRF Renamer"); }
+        private void contactMe_Click(object sender, EventArgs e) { MessageBox.Show("Contact me:\n\nDiscord: ChrisDerWahre#9694\nTwitter: ChrisDerWahre", "JSRF Renamer"); }
 
-        private void reportAnIssueToolStripMenuItem_Click(object sender, EventArgs e) { Process.Start("https://github.com/chrisderwahre/JSRF_renamer/issues"); }
+        private void reportIssue_Click(object sender, EventArgs e) { Process.Start("https://github.com/chrisderwahre/JSRF_renamer/issues"); }
+
+        private void exit_Click(object sender, EventArgs e) { this.Close(); }
+
+        public Main() { InitializeComponent(); }
+
+        private void closeXbe_Click(object sender, EventArgs e) { closeXbe(); }
     }
 }

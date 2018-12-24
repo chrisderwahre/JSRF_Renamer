@@ -100,7 +100,7 @@
             this.openxbeToolStripMenuItem.Name = "openxbeToolStripMenuItem";
             this.openxbeToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.openxbeToolStripMenuItem.Text = "Open .xbe";
-            this.openxbeToolStripMenuItem.Click += new System.EventHandler(this.openxbeToolStripMenuItem_Click);
+            this.openxbeToolStripMenuItem.Click += new System.EventHandler(this.openXbe_Click);
             // 
             // closeItem
             // 
@@ -143,21 +143,21 @@
             this.reportAnIssueToolStripMenuItem.Name = "reportAnIssueToolStripMenuItem";
             this.reportAnIssueToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.reportAnIssueToolStripMenuItem.Text = "Report an Issue";
-            this.reportAnIssueToolStripMenuItem.Click += new System.EventHandler(this.reportAnIssueToolStripMenuItem_Click);
+            this.reportAnIssueToolStripMenuItem.Click += new System.EventHandler(this.reportIssue_Click);
             // 
             // contactMeToolStripMenuItem
             // 
             this.contactMeToolStripMenuItem.Name = "contactMeToolStripMenuItem";
             this.contactMeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.contactMeToolStripMenuItem.Text = "Contact me";
-            this.contactMeToolStripMenuItem.Click += new System.EventHandler(this.contactMeToolStripMenuItem_Click);
+            this.contactMeToolStripMenuItem.Click += new System.EventHandler(this.contactMe_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.about_Click);
             // 
             // groupBox1
             // 
